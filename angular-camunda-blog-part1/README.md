@@ -5,6 +5,7 @@ Files needed before starting:
 - Maven 3.0.4 or greater
 
 Optional:
+
 - For editing/viewing the BPMN flow: camunda-modeler-indigo-latest.zip (alternatively, the Camunda BPM plugin for Eclipse)
 ---
 
