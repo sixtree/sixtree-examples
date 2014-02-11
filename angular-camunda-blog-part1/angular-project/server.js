@@ -9,6 +9,7 @@ var forward = function(pattern, host){
             var db_path = req.url.match(pattern)[1]
                 ,db_url = [host, db_path].join('/');
             console.log("-> " + db_url);
+			var methodName = req.method.toLowerCase();
             req.pipe(request[methodName](db_url)).pipe(res);
         }else{
             next();
