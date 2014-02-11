@@ -6,7 +6,8 @@ Files needed before starting:
 
 Optional:
 
-- For editing/viewing the BPMN flow: camunda-modeler-indigo-latest.zip (alternatively, the Camunda BPM plugin for Eclipse)
+- For editing/viewing the BPMN flow: camunda-modeler-indigo-latest.zip (alternatively, the Camunda BPM plugin for Eclipse) 
+
 ---
 
 *Camunda BPM*
