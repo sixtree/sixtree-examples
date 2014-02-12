@@ -18,13 +18,12 @@ app.factory("TaskService", function($http) {
                 result[value.key] = value.id;
                 return result;
             }, {});
-
             processes = mapped;
-            console.log(processes)
         });
    
     function startProcess(process, variables) {
         var id = processes[process];
+        console.log("Step 1")
         return $http.post(camundaRestUrl + '/process-definition/' + id + '/start', {variables: variables})
             .then(function(res) {
                 return getTasksForProcess(res.data.id);
@@ -35,6 +34,7 @@ app.factory("TaskService", function($http) {
     }	
 	
 	function getTasksForProcess(processId) {
+        console.log("Step 2")
         return $http.get(camundaRestUrl + '/task?processInstanceId=' + processId)
             .then(function(res) {
                 return res.data;
@@ -42,14 +42,15 @@ app.factory("TaskService", function($http) {
     }
 	
 	function getTaskDetail(id) {
+        console.log("Step 4")
         return $http.get(camundaRestUrl + '/task/' + id)
             .then(function(res) {
-                console.log("Task:", res.data.id);
                 return res.data;
             });
     }
 	
 	function getProcessVariables(id) {
+        console.log("Step 5")
         return $http.get(camundaRestUrl + '/process-instance/' + id + '/variables')
             .then(function(res) {
                 return res.data;
@@ -57,6 +58,7 @@ app.factory("TaskService", function($http) {
     }
 	
 	function completeTask(id, variables) {
+        console.log("Step 5")
         return $http.post(camundaRestUrl + '/task/' + id + '/complete', { variables: variables })
             .then(function(res) {
                 console.log("Task Completed: ", id, variables);                
@@ -64,6 +66,7 @@ app.factory("TaskService", function($http) {
             });
     }    
 	function getFormForTask(taskId) {
+        console.log("Step 3")
         return $http.get(camundaRestUrl + '/task/' + taskId + '/form')
             .then(function(res) {
                 return "partials/" + res.data.key + ".html";
