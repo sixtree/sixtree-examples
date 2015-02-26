@@ -1,0 +1,17 @@
+<ss:user-service id="userServiceUT">
+  <!-- Only users with id FOO and password BAR belonging to group “ROLE_ADMIN” would be allowed access -->
+  <ss:user 
+    name="FOO" 
+    password="BAR" 
+    authorities="ROLE_ADMIN"/>
+</ss:user-service>
+		
+<spring:bean id="SpringAuthManagerUT" class="org.springframework.security.authentication.ProviderManager">
+  <spring:constructor-arg>
+    <spring:list>
+      <spring:bean class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+        <spring:property name="userDetailsService" ref="userServiceUT"/>
+      </spring:bean>
+    </spring:list>
+  </spring:constructor-arg>
+</spring:bean>
