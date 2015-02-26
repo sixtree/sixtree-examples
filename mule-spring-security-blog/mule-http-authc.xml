@@ -1,0 +1,11 @@
+<http:inbound-endpoint 
+  doc:name="HTTP" 
+  exchange-pattern="one-way"
+  connector-ref="Default_HTTP_Connector" 
+  host="localhost" 
+  port="8080"		        
+  path="test_http_inbound_endpoint_path/testHttpAuth">
+  <spring-security:http-security-filter 
+    realm="Enter valid user credentials to access the web service" 
+    securityProviders="SpringSecurityProviderUT"/>
+<http:inbound-endpoint>
