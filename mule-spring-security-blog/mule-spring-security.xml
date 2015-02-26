@@ -1,0 +1,5 @@
+<!-- Mule's Spring Security Manager -->
+<mule-ss:security-manager>
+  <mule-ss:delegate-security-provider name="SpringSecurityProvider" delegate-ref="SpringAuthManager" />
+  <mule-ss:delegate-security-provider name="SpringSecurityProviderUT" delegate-ref="SpringAuthManagerUT" />
+</mule-ss:security-manager>
