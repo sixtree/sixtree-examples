@@ -1,0 +1,14 @@
+<!-- Spring Security LDAP Server bean -->
+<ss:ldap-server id="LdapServer" url="ldap://ldap.yourorg.com.au:389"/>
+
+<!-- Spring Authentication Manager -->
+<ss:authentication-manager alias="SpringAuthManager">
+  <ss:ldap-authentication-provider 
+    server-ref="LdapServer" 
+    user-search-filter="(uid={0})" 
+    user-search-base="ou=People,dc=YourOrg,dc=com,dc=au" 
+    group-search-base="ou=Accessgroups,dc=YourOrg,dc=com,dc=au" 
+    group-search-filter="(memberUid={0})" 
+    group-role-attribute="cn"
+  />	
+</ss:authentication-manager>
