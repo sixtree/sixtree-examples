@@ -1,4 +1,4 @@
-package com.sample.esb.xslt;
+package com.sample.xslt;
 
 import java.util.Random;
 
